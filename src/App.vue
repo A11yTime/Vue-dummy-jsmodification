@@ -3,14 +3,12 @@
    <header><h1>My Friends</h1></header> 
     <ul>
     <friend-contact
-    name="Rubab Rana"
-    phone-number="123 564 5478"
-    email-address="rubab@localhost.com"
-    ></friend-contact>
-    <friend-contact
-    name="Rahma Rana"
-    phone-number="123 564 5479"
-    email-address="rahma@localhost.com"
+    v-for="friend in friends"
+    :key="friend.id"
+    :name="friend.name"
+    :phone-number="friend.phone"
+    :email-address="friend.email"
+    :is-favorite="true"
     ></friend-contact>
   </ul>
   </section>
@@ -23,7 +21,30 @@
 export default {
   name: 'App',
   components: {
-   
+},
+data(){
+  return{
+  friends: [
+   {
+      id: 'Rubab',
+      name: 'Rubab Rana',
+      phone: '245 823 5874',
+      email: 'rubab@localhost.com'
+    },
+    {
+      id: 'Rahma',
+      name: 'Rahma Rana',
+      phone: '245 823 5875',
+      email: 'rahma@localhost.com'
+    },
+    {
+      id: 'Abraham',
+      name: 'Abraham Mohammad Abdullah',
+      phone: '245 823 5876',
+      email: 'abraham@localhost.com'
+    },
+  ]
+  }
 }
 }
 </script>
