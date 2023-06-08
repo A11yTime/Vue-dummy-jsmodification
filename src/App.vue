@@ -2,8 +2,16 @@
   <section>
    <header><h1>My Friends</h1></header> 
     <ul>
-    <friend-contact></friend-contact>
-    <friend-contact></friend-contact>
+    <friend-contact
+    name="Rubab Rana"
+    phone-number="123 564 5478"
+    email-address="rubab@localhost.com"
+    ></friend-contact>
+    <friend-contact
+    name="Rahma Rana"
+    phone-number="123 564 5479"
+    email-address="rahma@localhost.com"
+    ></friend-contact>
   </ul>
   </section>
 </template>
