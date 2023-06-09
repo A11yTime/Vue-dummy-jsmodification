@@ -1,6 +1,6 @@
 <template>
 <li>
-    <h2>{{ name }} {{ friendIsFavorite ? '(Favorite)' : '' }}</h2>
+    <h2>{{ name }} {{ isFavorite ? '(Favorite)' : '' }}</h2>
     <button @click="toggleFavorite">Toggle Favorite</button>
     <button @click="toggleDetails" :aria-expanded="detailsAreVisible">{{detailsAreVisible ? 'Hide' : 'Show'}} Details</button>
     
@@ -14,6 +14,10 @@
  export default {
     // props: ['name','phoneNumber','emailAddress','isFavorite'],
     props:{
+        id: {
+            type: String,
+            requrired: true
+        },
         name: {
             type: String,
             requrired: true,
@@ -39,7 +43,6 @@
      data(){
         return{
             detailsAreVisible: false,
-            friendIsFavorite: this.isFavorite
        };
      },
      methods: {
@@ -47,7 +50,7 @@
             this.detailsAreVisible = !this.detailsAreVisible
         },
         toggleFavorite(){
-         this.friendIsFavorite= !this.friendIsFavorite
+         this.$emit('toggle-favorite', this.id)
         }
      }
  }

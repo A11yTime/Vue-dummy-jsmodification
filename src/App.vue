@@ -8,7 +8,9 @@
     :name="friend.name"
     :phone-number="friend.phone"
     :email-address="friend.email"
-    :is-favorite="true"
+    :is-favorite= friend.isFavorite
+    :id="friend.id"
+    @toggle-favorite="toggleFavoriteStatus"
     ></friend-contact>
   </ul>
   </section>
@@ -29,23 +31,32 @@ data(){
       id: 'Rubab',
       name: 'Rubab Rana',
       phone: '245 823 5874',
-      email: 'rubab@localhost.com'
+      email: 'rubab@localhost.com',
+      isFavorite: true
     },
     {
       id: 'Rahma',
       name: 'Rahma Rana',
       phone: '245 823 5875',
-      email: 'rahma@localhost.com'
+      email: 'rahma@localhost.com',
+      isFavorite: true
     },
     {
       id: 'Abraham',
       name: 'Abraham Mohammad Abdullah',
       phone: '245 823 5876',
-      email: 'abraham@localhost.com'
+      email: 'abraham@localhost.com',
+      isFavorite: true
     },
   ]
   }
-}
+},
+methods: {
+  toggleFavoriteStatus(friendId){
+    const identifiedFriend = this.friends.find((friend) => friend.id === friendId);
+    identifiedFriend.isFavorite = !identifiedFriend.isFavorite
+  }
+ }
 }
 </script>
 
