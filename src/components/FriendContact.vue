@@ -8,10 +8,16 @@
         <li><strong>Phone:</strong>{{ phoneNumber }}</li>
         <li><strong>Email:</strong>{{ emailAddress }}</li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button>
 </li>
 </template>
  <script>
  export default {
+    name: 'FriendContact',
+    components: {
+
+    },
+    emits: ['toggle-favorite', 'delete'],
     // props: ['name','phoneNumber','emailAddress','isFavorite'],
     props:{
         id: {
